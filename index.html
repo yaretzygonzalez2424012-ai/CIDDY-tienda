@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIDDY, tienda para ropa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=,Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff5fa;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #ff69b4, #a855f7);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+        header h1 {
+            font-size: 45px;
+            margin: 0;
+            letter-spacing: 5px;
+        }
+        .producto {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f1e5eb;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .producto:hover {
+            transform: translateY(-5px);
+        }
+        .producto h3 {
+            color: #292329;
+            font-size: 19px;
+            font-weight: 600;
+            margin: 12px 0;
+        }
+.producto button {
+            background: #d979a5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            }
+            .producto button:hover {
+                background: #d66b9c;
+            }
+            .imagen-producto {
+                width: 100%;
+                height: 230px;
+                object-fit: contain;
+                border-radius: 12px;
+                background: #f5f5f5;
+            }
+            #productos {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                gap: 25px;
+                padding: 20px;
+                max-width: 1100px;
+                margin: auto;
+            }
+            .producto p {
+                color: #8b7d85;
+                font-size: 14px;
+                margin: 8px 0;
+            }
+            #carrito {
+                background: #f7a5cf;
+                padding: 35px;
+                margin: 40px auto;
+                max-width: 950px;
+                border-radius: 25px;
+                border: 1px solid #f3d5e2;
+                box-shadow: 0 8px 30px rgba(214, 107, 156, 0.12);
+            }
+            #carrito h2 {
+                color: #292329;
+                text-align: center;
+                font-size: 27px;
+                font-weight: 400;
+                letter-spacing: 4px;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+            }
+            #carrito p {
+                color: #55434c;
+                font-size: 18px;
+                font-weight: 500;
+                margin-top: 20px;
+                }
+                #carrito p:has(#total) {
+                    background: #fce4ec;
+                    padding: 16px 20px;
+                    border-radius: 15px;
+                    text-align: center;
+                    font-size: 21px;
+                    font-weight: 600;
+                    color: #8f4568;
+                    border: 1px solid #f3c5d8;
+                }
+                
+                #carrito button {
+                    background: #e88bb5;
+                    color: white;
+                    border: none;
+                    padding: 14px 28px;
+                    border-radius: 25px;
+                    font-size: 14px;
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+                }
+                #carrito button:hover {
+                    background: #d66b9c;
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 15px rgba(214, 107, 156, 0.25);
+                }
+            .logo-titulo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            }
+            .logo-titulo h1 {
+                font-family: 'Montsserrat', sans-seriaf !important;
+                transform: scaleX(1.12);
+                font-size: 46px;
+                font-weight: 300;
+                letter-spacing: 7px;
+                color: #292329;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            .logo-ciddy {
+                width: 350px;
+                height: 350px;
+                object-fit: contain;
+                animation: girarLogo 1.5s ease-in-out 1;
+            }
+            @Keyframes girarLogo {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            .producto select {
+                width: 100%;
+                padding: 11px 12px;
+                margin: 7px 0;
+                border: 1px solid #edc2d5;
+                border-radius: 12px;
+                background: #fff8fb;
+                color: #55434c;
+                font-size: 14px;
+                outline: none;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .producto select:focus {
+                border-color: #e88bb5;
+                box-shadow: 0 0 0 3px rgba(232, 139, 181, 0.15);
+            }
+
+            .logo-titulo {
+                background: #ffffff;
+                padding: 15px 25px;
+                border-bottom: 2px solid #f3c5d8;
+                border-radius: 0 0 15px 15px;
+            }
+            .producto {
+                border: 1px solid #f3d5e2;
+                border-radius: 22px;
+                box-shadow: 0 6px 20px rgba(214, 107, 156, 0.10);
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+            .producto:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 10px 25px rgba(214, 107, 156, 0.18);
+            }
+            .imagen-producto {
+                background: #fffafd;
+                border-radius: 16px;
+            }
+            .producto button {
+                background: #d979a5;
+                color: #ffffff;
+                border: none;
+                padding: 13px 22px;
+                border-radius: 25px;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(217, 121, 165, 0.2);
+            }
+            .producto button:hover {
+                background: #c45d8c;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(217, 121, 165, 0.3);
+            }
+            .portada-modelo img {
+                width: 100%;
+                max-width: 1250px;
+                margin: 35px auto;
+                padding: 15px;
+                box-sizing: border-box;
+                position: relative;
+            }
+            .portada-modelo img {
+                width: 100%;
+                height: 650px;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                border-radius: 8px;
+                box-shadow: 0 12px 35px rgba(214, 107, 156, 0.18);
+            }
+            .portada-modelo {
+                position: relative;
+                overflow: hidden;
+            }
+            .texto-campana {
+                position: absolute;
+                bottom: 55px;
+                left: 55px;
+                color: #ffffff;
+                text-align: left;
+                text-shadow: 1px 2px 8px rgba(0,0,0,0.45);
+            }
+            .texto-campana p {
+                font-size: 15px;
+                letter-spacing: 5px;
+            }
+            .texto-campana h2 {
+                font-size: 38px;
+                letter-spacing: 3px;
+                margin: 12px 0;
+            }
+            .texto-campana spam {
+                font-size: 17px;
+            }
+            .texto-campana a {
+                display: block;
+                width: fit-content;
+                margin-top: 22px;
+                padding: 14px 25px;
+                background: #d979a5;
+                color: white;
+                text-decoration: none;
+                border-radius: 25px;
+                font-size: 13px;
+                letter-spacing: 2px;
+                text-shadow: none;
+                transition: 0.3s;
+            }
+            .texto-campana a:hover {
+                background: #c45d8c;
+                transform: translateY(-3px);
+            }
+            @media (max-width: 600px) {
+                .portada-modelo{
+                    padding: 8px;
+                    margin: 18px auto;
+                }
+                .portada-modelo img {
+                    height: 430px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+                .texto-campana {
+                    left: 20px;
+                    right: 15px;
+                    bottom: 25px,
+                }
+                .texto-campana p {
+                    font-size: 10px;
+                    letter-spacing: 2px;
+                }
+                .texto-campana h2 {
+                    font-size: 23px;
+                    letter-spacing: 1px;
+                }
+                .texto-campana span {
+                    font-size: 13px;
+                }
+                .texto-campana a {
+                    padding: 11px 17px;
+                    font-size: 11px;
+                }
+            }
+            .modelos-ciddy {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                width: 100%;
+                max-width: 1100px;
+                margin: 30px auto;
+                padding: 10px;
+            }
+            .modelos-ciddy img {
+                width: 150%;
+                height: 420px;
+                object-fit: cover;
+                border-radius: 15px;
+                box-shadow: 0 8px 25px rgba(214, 107, 156, 0.15);
+                animation: giroModelos 3s ease-in-out infinite;
+                transform-style: preserve-3d;
+                backface-visibility: visible;
+            }
+            .modelos-ciddy {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                max-width: 500px;
+                margin: 40px auto;
+                padding: 15px;
+            }
+            
+            @media (max-width: 600px) {
+                .modelos-ciddy {
+                    gap: 12px;
+                }
+                }
+                .modelos-ciddy img {
+                    height: 320px;
+                }
+                @keyframes giroModelos {
+                    0% {
+                        transform: rotateY(0deg);
+                    }
+                    50% {
+                        transform: rotateY(180deg);
+                }
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+         </style>
+</head>
+<body>
+    <header>
+        <div class="logo-titulo">
+            <img src="logociddy.jpeg" alt="Logo CIDDY" class="logo-ciddy">
+            <h1>CIDDY</h1>
+        </div>
+        <P>Tu estilo, tu actitud.</P>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catalogo</a>
+            <a href="#personalizar">Personalizar</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#carrito">Carrito</a>
+        </nav>
+    </header>
+    <main>
+         <section class="portada-modelo">
+                <img src="modelosmh.jpeg" alt="Modelo luciendo CIDDY">
+                <div class="texto-campana">
+                    <p>TU ESTILO. TU ACTITUD.</p>
+                    <h2>DESCUBRE TU ESENCIA</h2>
+                    <span>la moda comienza contigo.</span>
+                    <a href="#productos">EXPLORAR COLECCIÓN></a>
+                </div>
+            </section>
+        <section id="catalogo">
+
+            <h2>Nuestro catálogo</h2>
+            <div id="productos"></div>
+        </section>
+             <section class="modelos-ciddy">
+                <div>
+                    <img src="mujer.jpeg" alt="Modelo CIDDY">
+                </div>
+                <div>
+                    <img src="hom.jpeg" alt="Modelo CIDDY">
+                </div>
+            </section>
+        <section id="carrito">
+            <h2>Mi carrito</h2>
+            <div id="lista-carrito"></div>
+            <p>Total: $<span id="total">0</span> MXN</p>
+            <button onclick="finalizarPedido()">Finalizar pedido por WhatsApp</button>
+            <div class="datos-cliente">
+            <h3>Datos para tu pedido</h3>
+            <label>Nombre completo:</label>
+            <input type="text" id="nombreCliente" placeholder="Escribe tu nombre">
+            <label>Teléfono:</label>
+            <input type="tel" id="telefonoCliente" placeholder="Tu teléfono">
+            <label>Dirección de entrega:</label>
+            <textarea id="direccionCliente" placeholder="Calle, número, colonia y ciudad"></textarea>
+            <label>Referencias (opcional):</label>
+            <textarea id="referenciasCliente" placeholder="Referencias de tu domicilio"></textarea>
+            </div>
+        </section>
+    </main>
+    <script>
+        const productos = [
+            { nombre: "playera básica", precio: 200, categoria: "playeras básicas", imagen: "rosa.jpeg" },
+            { nombre: "playera manga larga", precio: 250, categoria: "Manga larga", imagen: "mangar.jpeg" },
+            { nombre: "suéter CIDDY", precio: 350, categoria: "suéteres", imagen: "sueterrosa.jpeg"}
+        ];
+        const contenedor = document.getElementById("productos");
+        productos.forEach((producto, indice) => {
+            contenedor.innerHTML += `
+            <div class="producto">
+                <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-producto" id="imagen-producto-${indice}">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.categoria}</p>
+                <h3>$${producto.precio} MXN</h3>
+                <label>Talla:</label>
+                <select class="talla">
+                    <option value="XS">XS</option>
+                    <option value="CH">CH</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    </select>
+                    <label>Tela:</label>
+                    <select class="tela">
+                        <option value="Algodón">Algodón</option>
+                        <option value="Poliéster">Poliéster</option>
+                        </select>
+                        <label>Diseño:</label>
+                        <select class="diseno">
+                            <option value="Impreso">Impreso</option>
+                            <option value="Bordado">Bordado</option>
+                            </select>
+                            <label>Color:</label>
+                            <select class="color" onchange="cambiarColor(${indice}, this.value)">
+                            <option value="Rosa">Rosa</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Beige">Beige</option>
+                            <opotion value="Gris">Gris</option>
+                            </select>
+
+                <button onclick="agregarAlcarrito(${indice})">
+                    Agregar al carrito
+                    </button>
+                    </div>
+                    `;
+        });
+        function cambiarColor(indice, color){
+        const imagenesPorProducto = {
+        0: {
+        "Rosa": "rosa.jpeg",
+        "Negro": "negro.jpeg",
+        "Blanco": "blanc.jpeg",
+        "Beige": "beige.jpeg"
+    },
+    1: {
+    "Rosa": "mangar.jpeg",
+    "Blanco": "mangab.jpeg",
+    "Negro": "mangan.jpeg",
+    "Beige": "mangabe.jpeg"
+    },
+    2: {
+    "Rosa": "sueterrosa.jpeg",
+    "Blanco": "sueterb.jpeg",
+    "Negro": "suetern.jpeg",
+    "Beige": "sueterbe.jpeg"
+}
+};
+    
+        const imagenes = imagenesPorProducto[indice];
+        const imagen = document.getElementById("imagen-producto-" + indice);
+
+        if (imagenes && imagenes[color] && imagen) {
+        imagen.src = imagenes[color];
+        }
+        }
+        const carrito = [];
+        function agregarAlcarrito(indice) {
+            const talla = document.querySelectorAll(".talla")[indice].value;
+            const tela = document.querySelectorAll(".tela")[indice].value;
+            const diseno = document.querySelectorAll(".diseno")[indice].value;
+            const color = document.querySelectorAll(".color")[indice].value;
+            carrito.push({
+                ...productos[indice],
+                talla: talla,
+                tela: tela ,
+                diseno: diseno,
+                color: color
+            });
+            mostrarCarrito();
+        }
+        function mostrarCarrito() {
+            const lista = document.getElementById("lista-carrito");
+            const total = document.getElementById("total");
+            lista.innerHTML = "";
+            let suma = 0;
+            carrito.forEach((producto, indice) => {
+                lista.innerHTML += `
+                <p>${producto.nombre} -  Talla: ${producto.talla} -  Tela: ${producto.tela} - Diseño: ${producto.diseno} - Color: ${producto.color} - $${producto.precio} MNX
+                    <button onclick="eliminarDelCarrito(${indice})">
+                        Eliminar
+                        </button>
+                    </p>
+                `;
+                suma += producto.precio;
+            });
+            total.textContent = suma;
+        }
+        function eliminarDelCarrito(indice) {
+            carrito.splice(indice, 1);
+            mostrarCarrito();
+        }
+        function finalizarPedido() {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío");
+                return;
+            }
+            let salto = String.fromCharCode(10);
+            let nombre = document.getElementById("nombreCliente").value;
+            let telefono = document.getElementById("telefonoCliente").value;
+            let direccion = document.getElementById("direccionCliente").value;
+            let referencias = document.getElementById("referenciasCliente").value;
+
+            if (nombre === "" || telefono === "" || direccion === "") {
+            alert("completa tu nombre, teléfono y dirección");
+            return;
+            }
+
+            let mensaje = "Hola, quiero realizar un pedido en CIDDY:" + salto + salto;
+            mensaje += "Nombre: " + nombre + salto;
+            mensaje += "Teléfono: " + telefono + salto; 
+            mensaje += "Dirección " + direccion + salto;
+            mensaje += "Referencias: " + referencias + salto + salto;
+            let totalPedido = 0; 
+            carrito.forEach(function(producto) {
+            mensaje += "Prenda: " + producto.nombre + salto;
+            mensaje += "Talla: " + producto.talla + salto;
+            mensaje += "Tela: " + producto.tela + salto;
+            mensaje += "Diseño: " + producto.diseno + salto;
+            mensaje += "Color: " + producto.color + salto;
+            mensaje += "Precio: " + producto.precio + " MXN" + salto + salto;
+
+            totalPedido += producto.precio;
+        });
+
+        mensaje += "Total: $" + totalPedido + " MXN";
+        let enlace = "https://wa.me/525581746054?text=" + encodeURIComponent(mensaje);
+        window.open(enlace, "_blank");
+        }
+    </script>
+</body>
+</html>
